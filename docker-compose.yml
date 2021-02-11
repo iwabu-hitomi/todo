@@ -7,7 +7,7 @@ services:
   php-cli: # Web server for remote debug on PhpStorm.
     build: ./docker
     volumes:
-      - ./prj/sample:/var/www/html
+      - ./prj/sample:/var/www/html/
       - ./docker/php.ini:/usr/local/etc/php/php.ini
     working_dir: /var/www/html
     container_name: php-cli
@@ -20,7 +20,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./prj/sample:/var/www/html
+      - ./prj/sample:/var/www/html/
       - ./docker/php.ini:/usr/local/etc/php/php.ini
     working_dir: /var/www/html
     container_name: web
@@ -34,7 +34,7 @@ services:
       - 5432:5432
     volumes:
       - db-data:/var/lib/postgresql/data
-      - ./docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d # If you have a shell that you want to run when you create the container, store it here.
+      - ./docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     environment: # Set the postgres user name, password and database name.
       POSTGRES_USER: default
       POSTGRES_PASSWORD: secret
