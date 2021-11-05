@@ -7,7 +7,7 @@ services:
   php-cli: # Web server for remote debug on PhpStorm.
     build: ./docker
     volumes:
-      - ./prj:/var/www/html/
+      - ./prj/todo:/var/www/html/
       - ./docker/php.ini:/usr/local/etc/php/php.ini
     working_dir: /var/www/html
     container_name: php-cli
@@ -20,7 +20,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./prj:/var/www/html/
+      - ./prj/todo:/var/www/html/
       - ./docker/php.ini:/usr/local/etc/php/php.ini
     working_dir: /var/www/html
     container_name: web
